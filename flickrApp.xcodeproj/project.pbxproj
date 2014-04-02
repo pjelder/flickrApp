@@ -21,6 +21,10 @@
 		725BE27018EB58FD00F45A30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725BE25218EB58FC00F45A30 /* UIKit.framework */; };
 		725BE27818EB58FD00F45A30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 725BE27618EB58FD00F45A30 /* InfoPlist.strings */; };
 		725BE27A18EB58FD00F45A30 /* flickrAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 725BE27918EB58FD00F45A30 /* flickrAppTests.m */; };
+		72AA29F518EB63BE0046B076 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AA29F418EB63BE0046B076 /* FlickrFetcher.m */; };
+		72B4372B18EB68BD0057BA74 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B4372618EB68BD0057BA74 /* ImageViewController.m */; };
+		72B4372C18EB68BD0057BA74 /* RecentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B4372818EB68BD0057BA74 /* RecentsTableViewController.m */; };
+		72B4372D18EB68BD0057BA74 /* TopPlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B4372A18EB68BD0057BA74 /* TopPlacesTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,15 @@
 		725BE27518EB58FD00F45A30 /* flickrAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "flickrAppTests-Info.plist"; sourceTree = "<group>"; };
 		725BE27718EB58FD00F45A30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		725BE27918EB58FD00F45A30 /* flickrAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flickrAppTests.m; sourceTree = "<group>"; };
+		72AA29F218EB63BE0046B076 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		72AA29F318EB63BE0046B076 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		72AA29F418EB63BE0046B076 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		72B4372518EB68BD0057BA74 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		72B4372618EB68BD0057BA74 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		72B4372718EB68BD0057BA74 /* RecentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentsTableViewController.h; sourceTree = "<group>"; };
+		72B4372818EB68BD0057BA74 /* RecentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentsTableViewController.m; sourceTree = "<group>"; };
+		72B4372918EB68BD0057BA74 /* TopPlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPlacesTableViewController.h; sourceTree = "<group>"; };
+		72B4372A18EB68BD0057BA74 /* TopPlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPlacesTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +125,14 @@
 		725BE25418EB58FC00F45A30 /* flickrApp */ = {
 			isa = PBXGroup;
 			children = (
-				725BE25D18EB58FC00F45A30 /* FlickrAppAppDelegate.h */,
-				725BE25E18EB58FC00F45A30 /* FlickrAppAppDelegate.m */,
+				72AA29F118EB63BE0046B076 /* Flickr Fetcher */,
 				725BE26018EB58FC00F45A30 /* Main.storyboard */,
+				72B4372518EB68BD0057BA74 /* ImageViewController.h */,
+				72B4372618EB68BD0057BA74 /* ImageViewController.m */,
+				72B4372718EB68BD0057BA74 /* RecentsTableViewController.h */,
+				72B4372818EB68BD0057BA74 /* RecentsTableViewController.m */,
+				72B4372918EB68BD0057BA74 /* TopPlacesTableViewController.h */,
+				72B4372A18EB68BD0057BA74 /* TopPlacesTableViewController.m */,
 				725BE26318EB58FC00F45A30 /* FlickrAppViewController.h */,
 				725BE26418EB58FC00F45A30 /* FlickrAppViewController.m */,
 				725BE26618EB58FC00F45A30 /* Images.xcassets */,
@@ -126,6 +144,8 @@
 		725BE25518EB58FC00F45A30 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				725BE25D18EB58FC00F45A30 /* FlickrAppAppDelegate.h */,
+				725BE25E18EB58FC00F45A30 /* FlickrAppAppDelegate.m */,
 				725BE25618EB58FC00F45A30 /* flickrApp-Info.plist */,
 				725BE25718EB58FC00F45A30 /* InfoPlist.strings */,
 				725BE25A18EB58FC00F45A30 /* main.m */,
@@ -151,6 +171,16 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		72AA29F118EB63BE0046B076 /* Flickr Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				72AA29F218EB63BE0046B076 /* FlickrAPIKey.h */,
+				72AA29F318EB63BE0046B076 /* FlickrFetcher.h */,
+				72AA29F418EB63BE0046B076 /* FlickrFetcher.m */,
+			);
+			path = "Flickr Fetcher";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -250,9 +280,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72B4372B18EB68BD0057BA74 /* ImageViewController.m in Sources */,
 				725BE26518EB58FC00F45A30 /* FlickrAppViewController.m in Sources */,
+				72B4372C18EB68BD0057BA74 /* RecentsTableViewController.m in Sources */,
 				725BE25B18EB58FC00F45A30 /* main.m in Sources */,
+				72AA29F518EB63BE0046B076 /* FlickrFetcher.m in Sources */,
 				725BE25F18EB58FC00F45A30 /* FlickrAppAppDelegate.m in Sources */,
+				72B4372D18EB68BD0057BA74 /* TopPlacesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +495,7 @@
 				725BE27F18EB58FD00F45A30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		725BE28018EB58FD00F45A30 /* Build configuration list for PBXNativeTarget "flickrAppTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +504,7 @@
 				725BE28218EB58FD00F45A30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
