@@ -8,14 +8,12 @@
 
 #import "TopPlacesTableViewController.h"
 #import "FlickrFetcher.h"
+#import "TopPlaces.h"
+#import "Place.h"
 
 @interface TopPlacesTableViewController ()
-@property (strong, nonatomic) NSDictionary *results;
-@property (strong, nonatomic) NSMutableArray *database;  //Array of NSArray of placeIds
-@property (strong, nonatomic) NSArray *places;  //of type NSDictionary place
-@property (strong, nonatomic) NSMutableDictionary *countries;  //Key of country, value is NSArray of placeIds
-@property (strong, nonatomic) NSMutableDictionary *regions;  //Key of placeId, value is region
-@property (strong, nonatomic) NSMutableDictionary *placeNames; //Key is placeID, value is "country"
+//@property (strong, nonatomic) NSDictionary *results;
+@property (strong, nonatomic) TopPlaces *topPlaces;
 @end
 
 @implementation TopPlacesTableViewController
@@ -28,6 +26,13 @@
     }
     return self;
 }
+
+- (TopPlaces *)topPlaces
+{
+    if (!_topPlaces) _topPlaces = [[TopPlaces alloc] init];
+    return _topPlaces;
+}
+
 - (IBAction)refresh {
     [self.refreshControl beginRefreshing];
     dispatch_queue_t otherQ = dispatch_queue_create("Q", NULL);
@@ -40,66 +45,14 @@
     });
 }
 
-
 - (void)downloadData
 {
-    NSData *flickrData = [NSData dataWithContentsOfURL:[FlickrFetcher URLforTopPlaces]];
-    self.results = [NSJSONSerialization JSONObjectWithData:flickrData
-                                                   options:0 error:NULL];
-    self.places = [self.results valueForKeyPath:FLICKR_RESULTS_PLACES];
-    for (NSDictionary *place in self.places) {
-        NSString *placeId = place[FLICKR_PLACE_ID];
-        
-        NSData *placeData = [NSData dataWithContentsOfURL:[FlickrFetcher URLforInformationAboutPlace:placeId]];
-        NSDictionary *placeInfo = [NSJSONSerialization JSONObjectWithData:placeData
-                                                                  options:0 error:NULL];
-        
-        //NSString *placeName = [FlickrFetcher extractNameOfPlace:(id)placeId fromPlaceInformation:placeInfo];  //Full name
-        NSString *regionName = [FlickrFetcher extractRegionNameFromPlaceInformation:placeInfo];   //Region
-        NSString *countryName = [FlickrFetcher extractCountryNameFromPlaceInformation:placeInfo];  //Country
-        
-        NSMutableArray *placesForCountry = [self.countries valueForKey:countryName];
-        if (!placesForCountry) {
-            placesForCountry = [[NSMutableArray alloc] init];
-            [self.countries setValue:placesForCountry forKey:countryName];
-        }
-        [placesForCountry addObject:placeId];
-        
-        [self.placeNames setValue:countryName forKey:placeId];
-        [self.regions setValue:regionName forKey:placeId];
-    }
-    
-    //convert locations NSDictionary to database
-    for (NSArray *places in [self.countries allValues]) {
-        [self.database addObject:places];
-    }
-    NSLog(@"%@", self.results.description);
+    [self.topPlaces downloadData];
+    //self.topPlaces = [[TopPlaces alloc] init];
     [self.tableView reloadData];
 }
 
-- (NSMutableDictionary *)countries
-{
-    if (!_countries) _countries = [[NSMutableDictionary alloc] init];
-    return _countries;
-}
 
-- (NSMutableDictionary *)regions
-{
-    if (!_regions) _regions = [[NSMutableDictionary alloc] init];
-    return _regions;
-}
-
-- (NSMutableArray *)database
-{
-    if (!_database) _database = [[NSMutableArray alloc] init];
-    return _database;
-}
-
-- (NSMutableDictionary *)placeNames
-{
-    if (!_placeNames) _placeNames = [[NSMutableDictionary alloc] init];
-    return _placeNames;
-}
 
 - (void)viewDidLoad
 {
@@ -116,14 +69,16 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [self.database count];
+    //return [self.database count];
+    return [self.topPlaces numberOfSections];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     //NSString *placeId = self.places[section][FLICKR_PLACE_ID];
-    return [self.database[section] count];
+    //return [self.database[section] count];
+    return [self.topPlaces numberOfRecordsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -132,11 +87,22 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    NSString *placeId = self.database[indexPath.section][indexPath.row];
-    cell.textLabel.text = [self.placeNames valueForKey:placeId];
-    cell.detailTextLabel.text = [self.regions valueForKey:placeId];
+    Place *place = [self.topPlaces getPlaceAtIndexPath:indexPath];
+    //NSString *placeId = self.database[indexPath.section][indexPath.row];
+    cell.textLabel.text = place.name;
+    //[self.placeNames valueForKey:placeId];
+    cell.detailTextLabel.text = place.region;
+
+    //[self.regions valueForKey:placeId];
     return cell;
 }
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.topPlaces countryInSection:section];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722A99B718F4A89A003F2FD8 /* TopPlaces.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A99B618F4A89A003F2FD8 /* TopPlaces.m */; };
+		722A99BA18F4A8FD003F2FD8 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A99B918F4A8FD003F2FD8 /* Place.m */; };
 		725BE24F18EB58FC00F45A30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725BE24E18EB58FC00F45A30 /* Foundation.framework */; };
 		725BE25118EB58FC00F45A30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725BE25018EB58FC00F45A30 /* CoreGraphics.framework */; };
 		725BE25318EB58FC00F45A30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725BE25218EB58FC00F45A30 /* UIKit.framework */; };
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		722A99B518F4A89A003F2FD8 /* TopPlaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPlaces.h; sourceTree = "<group>"; };
+		722A99B618F4A89A003F2FD8 /* TopPlaces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPlaces.m; sourceTree = "<group>"; };
+		722A99B818F4A8FD003F2FD8 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		722A99B918F4A8FD003F2FD8 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		725BE24B18EB58FC00F45A30 /* flickrApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flickrApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		725BE24E18EB58FC00F45A30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		725BE25018EB58FC00F45A30 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +139,10 @@
 				72B4372818EB68BD0057BA74 /* RecentsTableViewController.m */,
 				72B4372918EB68BD0057BA74 /* TopPlacesTableViewController.h */,
 				72B4372A18EB68BD0057BA74 /* TopPlacesTableViewController.m */,
+				722A99B818F4A8FD003F2FD8 /* Place.h */,
+				722A99B918F4A8FD003F2FD8 /* Place.m */,
+				722A99B518F4A89A003F2FD8 /* TopPlaces.h */,
+				722A99B618F4A89A003F2FD8 /* TopPlaces.m */,
 				725BE26318EB58FC00F45A30 /* FlickrAppViewController.h */,
 				725BE26418EB58FC00F45A30 /* FlickrAppViewController.m */,
 				725BE26618EB58FC00F45A30 /* Images.xcassets */,
@@ -281,10 +291,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				72B4372B18EB68BD0057BA74 /* ImageViewController.m in Sources */,
+				722A99B718F4A89A003F2FD8 /* TopPlaces.m in Sources */,
 				725BE26518EB58FC00F45A30 /* FlickrAppViewController.m in Sources */,
 				72B4372C18EB68BD0057BA74 /* RecentsTableViewController.m in Sources */,
 				725BE25B18EB58FC00F45A30 /* main.m in Sources */,
 				72AA29F518EB63BE0046B076 /* FlickrFetcher.m in Sources */,
+				722A99BA18F4A8FD003F2FD8 /* Place.m in Sources */,
 				725BE25F18EB58FC00F45A30 /* FlickrAppAppDelegate.m in Sources */,
 				72B4372D18EB68BD0057BA74 /* TopPlacesTableViewController.m in Sources */,
 			);
