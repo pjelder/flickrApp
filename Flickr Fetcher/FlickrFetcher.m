@@ -107,4 +107,9 @@
     return [placeInformation valueForKeyPath:FLICKR_PLACE_COUNTRY_NAME];
 }
 
++ (NSString *)extractNeighborhoodNameFromPlaceInformation:(NSDictionary *)placeInformation
+{
+    return [placeInformation valueForKeyPath:FLICKR_PLACE_NEIGHBORHOOD_NAME];
+}
+
 @end

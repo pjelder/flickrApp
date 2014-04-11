@@ -22,6 +22,7 @@
     //This name is still the full name.  Need to figure out how to strip out
     //Region and country data looks good.
     NSString *placeName = [FlickrFetcher extractNameOfPlace:self.placeId fromPlaceInformation:placeInfo];
+    //NSString *placeName = [FlickrFetcher extractNeighborhoodNameFromPlaceInformation:placeInfo];
     self.name = placeName;
     
 }

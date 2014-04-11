@@ -10,6 +10,7 @@
 #import "FlickrFetcher.h"
 #import "TopPlaces.h"
 #import "Place.h"
+#import "PhotosTableViewController.h"
 
 @interface TopPlacesTableViewController ()
 //@property (strong, nonatomic) NSDictionary *results;
@@ -51,6 +52,8 @@
     //self.topPlaces = [[TopPlaces alloc] init];
     [self.tableView reloadData];
 }
+
+//- (void) reloadRowsAtIndexPaths:(NSARray *)indexPathy withRowAnimation:(UITableViewRowAnimation)animation
 
 
 
@@ -97,6 +100,16 @@
     return cell;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[PhotosTableViewController class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        PhotosTableViewController *ptvc = (PhotosTableViewController *) segue.destinationViewController;
+        Place *place = [self.topPlaces getPlaceAtIndexPath:indexPath];
+        ptvc.placeId = place.placeId;
+        ptvc.title = place.country;
+    }
+}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
